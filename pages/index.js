@@ -59,27 +59,27 @@ const Index = () => (
                 } />
             </HeroContent>
 
-            <LandingSection id="main">
-                <img src={yellowShape} alt="" style={{width: '171px'}}/>
+            <LandingSection id="main" style={{justifyContent: 'space-around'}}>
+                <img src={yellowShape} alt="" style={{width: '137px'}}/>
                 <BigParagraph>Si eres diseñador, artesano o artista, mereces ser reconocido a nivel mundial</BigParagraph>
                 <BigParagraph><strong>Tu creación,</strong> inspiración, arte, horas de trabajo y esfuerzo son importantes para nosotros, haremos búsquedas constantes  de los productos que confías a nuestras manos para asegurarnos que nadie ocupa tu talento.</BigParagraph>
-                <img src={purpleShape} alt="" style={{width: '171px'}}/>
+                <img src={purpleShape} alt="" style={{width: '137px'}}/>
             </LandingSection>
             <LandingSection height="auto">
-            <SecondBackground />
-                <HeroContent width="995px">
+                <HeroContent>
                     <h1>Tu confianza</h1>
                     <h3>es un honor</h3>
                     <h4>por tal motivo trabajaremos en conjunto con organizaciones para apoyar y fomentar el talento de la creatividad.</h4>
                     <BigParagraph>Estamos <strong>¡Haciendo el cambio!</strong></BigParagraph>
                 </HeroContent>
             </LandingSection>
-            <LandingSection height="70vh">
-            <HeroContent width="995px">
+            <LandingSection height="70vh" style={{position: 'relative'}}>
+            <SecondBackground />
+            <HeroContent>
                 <HeroImages>
-                <Shapes style={{opacity: 0}} src={shapes} alt="" />
+                <Shapes hideOnMobile style={{opacity: 0}} src={shapes} alt="" />
                 <h1>Unete</h1>
-                <Shapes style={{marginLeft: '43px'}} src={shapeRight} alt="" />
+                <Shapes hideOnMobile style={{marginLeft: '43px'}} src={shapeRight} alt="" />
                 </HeroImages>
                     <h3>a nosotros</h3>
                     <Button large style={{marginTop: '106px'}}>REGÍSTRATE AQUÍ</Button>
@@ -89,12 +89,12 @@ const Index = () => (
 
             <Footer>
                 <FooterSection>
-                    <FacebookIcon size={36} />
-                    <InstagramIcon size={36} />
+                    <FacebookIcon />
+                    <InstagramIcon />
                     <span style={{marginLeft: '10px'}}>@ourholystyle</span>
                 </FooterSection>
                 <FooterSection>
-                    <EmailOpenOutlineIcon size={36} />
+                    <EmailOpenOutlineIcon />
                     <span style={{marginLeft: '10px'}}>info@ourholystyle</span>
                 </FooterSection>
             </Footer>
