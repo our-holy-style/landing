@@ -12,7 +12,13 @@ export default class MyDocument extends Document {
         <Head>
           <title>Our Holy Style</title>
           <link href='http://fontsforweb.com/font/getcss?id=78604&apikey=de42da7c9ecc761012fd402a66d96e6b' rel='stylesheet' type='text/css' />
-          <link href='http://fontsforweb.com/font/getcss?id=23412&apikey=de42da7c9ecc761012fd402a66d96e6b' rel='stylesheet' type='text/css' />
+          <link href='http://fontsforweb.com/font/getcss?id=23412&apikey=de42da7c9ecc761012fd402a66d96e6b' rel='stylesheet' type='text/css' />  
+          <style>
+            {`body {
+              margin: 0;
+            }
+            `}
+          </style>
         </Head>
 
         <body>

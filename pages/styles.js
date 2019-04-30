@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import heroBg from '../assets/images/hero-bg.png';
 
+import downBg from '../assets/images/down-bg.png';
 
 const Container = styled.div`
     width:100%;
@@ -11,8 +12,10 @@ const Header = styled.div`
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid rgba(0, 0, 0, 0.21);
-    margin: 17px 20px 0px 20px;
-    height: 70px;
+    height: 66px;
+    margin: 0;
+    margin-top:8px;
+    padding: 6px 20px;
     `;
 
 const Logo = styled.img`
@@ -47,48 +50,75 @@ const Button = styled.button`
     background: #7d3c7d;
     border: none;
     color: #fff;
-    font-size: 22px;
-    width: 251px;
-    height: 54px;
+    font-size: ${({large}) => large ? '32px' : '22px'} ;
+    width: ${({large}) => large ? '374px' : '251px'} ;
+    height: ${({large}) => large ? '80px' : '54px'} ;
     border-radius: 19px;
     cursor: pointer;
 `;
 
-const Hero = styled.section`
+const FirstBackground = styled.div`
     background: url(${heroBg});
-    height: calc(100vh - 71px);
+    height: 134vh;
+    position: absolute;
+    width: 100%;
+    background-repeat: no-repeat
     background-size: cover;
-    background-position-y: -49px;
+    background-position-y: -104px;
     background-position-x: 60px;
+    z-index:0;
+    `;
+
+const SecondBackground = styled.div`
+    background: url(${downBg});
+    height: 200vh;
+    position: absolute;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 242px;
+    background-position-x: -204px;
+    z-index: 0;    `;
+
+const Hero = styled.section`
+    height: calc(100vh - 95px);
+    z-index:1;
+    position:relative;
 `;
 
 const HeroContent = styled.div`
     display: flex;
     justify-content: center;
     height: 100%;
+    width: ${({width}) => width || 'auto'};
     align-items: center;
+    z-index:1;
     flex-direction: column;
     h1{
         font-family: 'BillyOhio';
         color: #5b5b5f;
         font-weight: 300;
-        font-size: 134px;
+        font-size: 149px;
         margin: 0;
         height: 142px;
+        text-align:center;
     }
     h3{
         font-family: 'BodoniXT';
         color: #5b5b5f;
         font-weight: 300;
-        font-size: 74px;
+        font-size: 102px;
         margin: 0;
+        text-align:center;
     }
     h4{
         font-family: 'Helvetica';
         color: #5b5b5f;
         font-weight: 300;
-        font-size: 32px;
+        font-size: 42px;
         margin: 0;
+        text-align:center;
+        letter-spacing: -1.08px;
     }
 `;
 
@@ -97,22 +127,64 @@ const HeroImages = styled.div`
     display: flex; 
     align-items: center;
     justify-content: space-around;
-    width: 64%;
+    width: 870px;
 `;
 
 const Shapes = styled.img`
-    width: 309px;
+    width: 368px;
     align-self: flex-end;
 `;
 
 const LogoIso = styled.img`
-    width: 150px;
+    width: 157px;
 `;
 
 const ScrollIcon = styled.img`
-    width: 28px;
+    width: 24px;
     margin-top: 4%;
     cursor: pointer;
+    position:relative;
+    z-index:1;
+`;
+
+const LandingSection = styled.section`
+    height: ${({height}) => height || '100vh'};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+`;
+
+const BigParagraph = styled.h5`
+    font-family: 'Helvetica';
+    color: #666666;
+    font-size: 47px;
+    letter-spacing: -1.2px;
+    width: 1000px;
+    font-weight: 300;
+    letter-spacing: -1.08px;
+    text-align: center;
+    strong {
+        font-size: 64px;
+        font-weight: 900;
+    }
+`;
+
+const Footer = styled.footer`
+    width: 100%;
+    height: 90px;
+    background: #86305a;
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 36px;
+    font-family: 'Helvetica';
+`;
+
+const FooterSection = styled.div`
+    display: flex;
+    align-items: center;
 `;
 
 export { 
@@ -128,4 +200,10 @@ export {
     Shapes,
     LogoIso,
     ScrollIcon,
+    LandingSection,
+    BigParagraph,
+    Footer,
+    FooterSection,
+    FirstBackground,
+    SecondBackground,
 };
