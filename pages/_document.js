@@ -1,6 +1,6 @@
 import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet, createGlobalStyle } from 'styled-components';
-
+import GlobalStyles from './globalStyles'; 
 const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'NeueMontreal';
@@ -59,10 +59,7 @@ export default class MyDocument extends Document {
             content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0"
           />
           <style>
-            {`body {
-              margin: 0;
-            }
-            `}
+            {GlobalStyles}
           </style>
         </Head>
 

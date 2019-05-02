@@ -90,6 +90,7 @@ const FirstBackground = styled.div`
 const SecondBackground = styled.div`
     background: url(${downBg});
     height: 200vh;
+    opacity: 0.5;
     position: absolute;
     width: 100%;
     background-repeat: no-repeat;
@@ -97,7 +98,12 @@ const SecondBackground = styled.div`
     background-position-y: 242px;
     background-position-x: -204px;
     z-index: 0;
-    bottom:0;    `;
+    bottom:0;   
+    ${breakpoint('desktop')`
+    opacity: 1
+    }
+`}    
+    `;
 
 const Hero = styled.section`
     height: calc(100vh - 64px);
@@ -116,14 +122,15 @@ const HeroContent = styled.div`
     h1{
         font-family: 'BillyOhio';
         color: #5b5b5f;
+        position: relative;
         font-weight: 300;
         margin: 0;
         font-size: 75px;
-        height: 72px;
+        height: 76px;
         text-align:center;
         ${breakpoint('desktop')`
             font-size: 119px;
-            height: 114px;
+            height: 121px;
          `}
     }
     h3{
@@ -165,12 +172,16 @@ const HeroImages = styled.div`
 `;
 
 const Shapes = styled.img`
-    width: 120px;
+
+    width: ${({adjustOnMobile}) => adjustOnMobile ? '100px' : '120px'};
     align-self: flex-end;
-    display: ${({hideOnMobile}) => hideOnMobile ? 'none' : 'flex'};
+
+    margin-left: ${({adjustOnMobile}) => adjustOnMobile ? '6px' : '0px'};
     ${breakpoint('desktop')`
         width: 295px;
         display: flex;
+        margin-left: ${({adjustOnMobile}) => adjustOnMobile ? '43px' : '0px'};
+
     `}    
 `;
 
@@ -182,13 +193,44 @@ const LogoIso = styled.img`
 
     `;
 
-const ScrollIcon = styled.img`
-    width: 24px;
+const ScrollIconContainer = styled.div`
     margin-top: 3%;
     cursor: pointer;
     position:relative;
     z-index:1;
-`;
+    display: none;
+    ${breakpoint('desktop')`
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        justify-content: center;
+    
+    `}    
+    img {
+        width: 24px;
+        margin-top: 3px;
+        animation: arrowOpacity 5s linear infinite;
+    }
+    `;
+
+const ScrollIconB = styled.div`
+    width: 24px;
+    border: 1px solid rgba(0,0,0,.6);
+    height: 47px;
+    border-radius: 7px;
+    display: flex;
+    justify-content:center;
+    cursor: pointer;
+    span{
+        font-size: 31px;
+        font-weight: 900;
+        color: #555;
+        position: relative;
+        bottom: 5px;
+        animation: trackBallSlide 5s linear infinite;
+    }
+    
+`
 
 const LandingSection = styled.section`
     height: ${({height}) => height || '100vh'};
@@ -232,6 +274,12 @@ const Footer = styled.footer`
     align-items: center;
     font-size: 18px;
     font-family: 'NeueMontreal';
+    a{
+        display: flex;
+        color: inherit;
+        text-decoration: none;
+        align-items:center;
+    }
     svg{
         width: 18px;
         height: 18px;
@@ -252,6 +300,18 @@ const FooterSection = styled.div`
     align-items: center;
 `;
 
+const Tile = styled.img`
+    position: absolute;
+    width: 75px;
+    bottom: 30px;
+    left: 9px;
+    ${breakpoint('desktop')`
+        width: 114px;
+        bottom: 48px;
+        left: 15px;
+    `}    
+`;
+
 export { 
     Container,
     Header,
@@ -264,11 +324,13 @@ export {
     HeroImages,
     Shapes,
     LogoIso,
-    ScrollIcon,
+    ScrollIconContainer,
     LandingSection,
     BigParagraph,
     Footer,
     FooterSection,
     FirstBackground,
     SecondBackground,
+    Tile,
+    ScrollIconB,
 };
